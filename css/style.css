@@ -7,6 +7,16 @@ body {
     color: #fff; /* Цвет текста для темной темы */
 }
 
+#progressBar {
+    top: 0;
+    left: 0;
+    height: 4px;
+    background-color: #3498db; /* или любой другой цвет */
+    width: 0%;
+    z-index: 9999; /* чтобы он был поверх других элементов */
+    transition: 0s;
+}
+
 a {
     cursor: pointer;
 }
@@ -16,19 +26,29 @@ a {
     max-width: 600px;
     margin: 50px auto;
     border-radius: 16px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: 1s;
-    box-shadow: 10px 5px 5px rgb(14, 17, 31);
 }
 
-@media (max-width: 600px) {
+@keyframes appearEffect {
+    0% {
+        transform: perspective(500px) rotateX(30deg);
+        opacity: 0;
+    }
+    100% {
+        transform: perspective(500px) rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 800px) {
     .resume-container {
         display: flex;
         margin: 0;
         flex-direction: column; /* Это делает основную ось вертикальной */
         min-height: 100vh; /* Убедитесь, что контейнер занимает весь экран по высоте */
         border-radius: 0;
+        min-width: 100%;
     }
 }
 
